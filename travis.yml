@@ -1,0 +1,17 @@
+language:node_js
+node_js:
+- 11.6.0
+catch:npm
+before_install:
+install:
+  - npm ci
+script:
+  - npm test
+  - npm ru build
+  
+deploy:
+  - provider:pages
+  - skip-cleanup:true
+  - github-token:$GITHUB_TOKEN
+  on:
+    branch:
